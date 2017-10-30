@@ -1,0 +1,8 @@
+#Node Modules
+node_modules/
+
+#DB Login Details
+.env
+variables.env
+
+

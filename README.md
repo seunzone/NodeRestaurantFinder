@@ -1,2 +1,19 @@
-# NodeRestaurantFinder
-A robust Application that allows Food Store owners signup online and lets thier store be seen by folks searching online
+## What is this?
+
+This is a Food Store Finder
+Built Using
+NodeJS - JavaScript (es6)
+MongoDB
+
+
+## Sample Data
+
+Start Application
+
+```bash
+npm start
+```
+
+
+
+
