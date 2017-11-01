@@ -63,11 +63,34 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+function autocomplete(input, latInput, lngInput) {
+    if (!input) return;
+    var dropdown = new google.maps.places.Autocomplete(input);
+
+    dropdown.addListener('place_changed', function () {
+        var place = dropdown.getPlace();
+        latInput.value = place.geometry.location.lat();
+        lngInput.value = place.geometry.location.lng();
+    });
+}
+
+exports.default = autocomplete;
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -97,21 +120,29 @@ exports.$ = $;
 exports.$$ = $$;
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 throw new Error("Module build failed: Error\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\NormalModule.js:141:35\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:170:18\n    at loadLoader (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\loadLoader.js:27:11)\n    at iteratePitchingLoaders (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at runLoaders (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\loader-runner\\lib\\LoaderRunner.js:362:2)\n    at NormalModule.doBuild (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\NormalModule.js:129:2)\n    at NormalModule.build (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\NormalModule.js:180:15)\n    at Compilation.buildModule (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\Compilation.js:142:10)\n    at moduleFactory.create (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\Compilation.js:424:9)\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\NormalModuleFactory.js:242:4\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\NormalModuleFactory.js:93:13\n    at E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\tapable\\lib\\Tapable.js:204:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\tapable\\lib\\Tapable.js:208:13)\n    at onDoneResolving (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\NormalModuleFactory.js:68:11)\n    at onDoneResolving (E:\\Node Sites\\NodeRestaurantFinder\\node_modules\\webpack\\lib\\NormalModuleFactory.js:189:6)\n    at _combinedTickCallback (internal/process/next_tick.js:95:7)\n    at process._tickCallback (internal/process/next_tick.js:161:9)");
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(1);
+__webpack_require__(2);
 
-var _bling = __webpack_require__(0);
+var _bling = __webpack_require__(1);
+
+var _autocomplete = __webpack_require__(0);
+
+var _autocomplete2 = _interopRequireDefault(_autocomplete);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _autocomplete2.default)((0, _bling.$)('#address'), (0, _bling.$)('#lat'), (0, _bling.$)('#lng'));
 
 /***/ })
 /******/ ]);
